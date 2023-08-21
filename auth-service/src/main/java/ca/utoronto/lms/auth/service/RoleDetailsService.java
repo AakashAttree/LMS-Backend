@@ -16,6 +16,6 @@ public class RoleDetailsService {
 	private RoleRepository repository;
 	
 	public RoleMapper getRoleMapper() {
-		return  null;
+		return  RoleMapper.MAPPER;
 	}
 }

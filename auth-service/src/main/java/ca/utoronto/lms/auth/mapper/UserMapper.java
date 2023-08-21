@@ -32,11 +32,11 @@ public interface UserMapper extends BaseMapper<User, UserDetailsDTO, Long> {
     List<UserDTO> userToUserDTOList(List<User> users);
 
     List<User> userDTOtoUserList(List<UserDTO> userDTOList);
-    @Mapping(target = "authorities", expression = "java(convert123(userDTO.getAuthorities()))" )
+    @Mapping(source = "authorities", ignore = true, target = "authorities")
    
     User toModel(UserDetailsDTO userDTO);
     
-    default Set<? extends BaseEntity<Long>> convert123(Set<RoleDTO>  roles ){
+    default Set<? extends GrantedAuthority> convert123(Set<RoleDTO>  roles ){
     	return roles.stream().map(DTO-> {
     		//Role role = new Role();
     		//role.setAuthority(DTO.getAuthority());
