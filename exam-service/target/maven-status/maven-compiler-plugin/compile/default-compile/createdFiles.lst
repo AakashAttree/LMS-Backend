@@ -1,0 +1,5 @@
+ca/utoronto/lms/exam/mapper/ExamPeriodMapperImpl.class
+ca/utoronto/lms/exam/mapper/ExamTermMapperImpl.class
+ca/utoronto/lms/exam/mapper/ExamTypeMapperImpl.class
+ca/utoronto/lms/exam/mapper/ExamMapperImpl.class
+ca/utoronto/lms/exam/mapper/ExamRealizationMapperImpl.class

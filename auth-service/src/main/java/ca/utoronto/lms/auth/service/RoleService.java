@@ -1,0 +1,21 @@
+package ca.utoronto.lms.auth.service;
+
+import ca.utoronto.lms.auth.model.Role;
+import ca.utoronto.lms.shared.dto.RoleDTO;
+import ca.utoronto.lms.shared.service.BaseService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RoleService extends BaseService<Role, RoleDTO, Long> {
+  
+	
+    
+    @Autowired
+    public RoleService(RoleDetailsService service) {
+        super(service.getRepository() , service.getRoleMapper());
+        
+        
+    }
+}

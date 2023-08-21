@@ -1,0 +1,5 @@
+package ca.utoronto.lms.auth.service;
+
+public class RoleDetailsService {
+
+}
