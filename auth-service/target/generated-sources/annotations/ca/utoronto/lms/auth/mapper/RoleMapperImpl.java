@@ -8,8 +8,8 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-08-21T11:54:02+0530",
-    comments = "version: 1.5.0.Final, compiler: Eclipse JDT (IDE) 3.35.0.v20230721-1147, environment: Java 17.0.7 (Eclipse Adoptium)"
+    date = "2023-08-29T11:16:14+0530",
+    comments = "version: 1.5.0.Final, compiler: javac, environment: Java 1.8.0_311 (Oracle Corporation)"
 )
 public class RoleMapperImpl implements RoleMapper {
 
@@ -22,9 +22,21 @@ public class RoleMapperImpl implements RoleMapper {
         RoleDTO.RoleDTOBuilder<?, ?> roleDTO = RoleDTO.builder();
 
         roleDTO.id( model.getId() );
-        roleDTO.authority( model.getAuthority() );
 
         return roleDTO.build();
+    }
+
+    @Override
+    public Role toModel(RoleDTO DTO) {
+        if ( DTO == null ) {
+            return null;
+        }
+
+        Role role = new Role();
+
+        role.setId( DTO.getId() );
+
+        return role;
     }
 
     @Override
@@ -39,20 +51,6 @@ public class RoleMapperImpl implements RoleMapper {
         }
 
         return list;
-    }
-
-    @Override
-    public Role toModel(RoleDTO DTO) {
-        if ( DTO == null ) {
-            return null;
-        }
-
-        Role.RoleBuilder<?, ?> role = Role.builder();
-
-        role.id( DTO.getId() );
-        role.authority( DTO.getAuthority() );
-
-        return role.build();
     }
 
     @Override

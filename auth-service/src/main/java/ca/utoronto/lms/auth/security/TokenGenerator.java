@@ -1,6 +1,21 @@
 package ca.utoronto.lms.auth.security;
 
+import static ca.utoronto.lms.shared.security.SecurityUtils.ROLE_ADMIN;
+import static ca.utoronto.lms.shared.security.SecurityUtils.ROLE_STUDENT;
+import static ca.utoronto.lms.shared.security.SecurityUtils.ROLE_TEACHER;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.stereotype.Component;
+
 import ca.utoronto.lms.auth.client.FacultyFeignClient;
+import ca.utoronto.lms.auth.model.Role;
 import ca.utoronto.lms.auth.model.User;
 import ca.utoronto.lms.auth.repository.UserRepository;
 import ca.utoronto.lms.shared.exception.BadRequestException;
@@ -9,18 +24,6 @@ import ca.utoronto.lms.shared.security.TokenUtils;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Component;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import static ca.utoronto.lms.shared.security.SecurityUtils.*;
 
 @Component
 @RequiredArgsConstructor
@@ -75,7 +78,7 @@ public class TokenGenerator {
         claims.put("userId", userId);
 
         List<String> authorities =
-                user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
+                user.getAuthorities().stream().map(Role::getAuthority).collect(Collectors.toList());
         claims.put("roles", authorities);
 
         if (authorities.contains(ROLE_ADMIN)) {

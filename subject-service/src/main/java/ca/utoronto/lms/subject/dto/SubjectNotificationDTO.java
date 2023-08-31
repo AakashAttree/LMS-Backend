@@ -15,10 +15,10 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class SubjectNotificationDTO extends BaseDTO<Long> {
-    @NotBlank(message = "Name is mandatory")
+   @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @NotBlank(message = "Description is mandatory")
+   @NotBlank(message = "Description is mandatory")
     private String description;
 
     @NotNull(message = "Publication date is mandatory")
@@ -26,6 +26,6 @@ public class SubjectNotificationDTO extends BaseDTO<Long> {
 
     private TeacherDTO teacher;
 
-    @NotNull(message = "Subject is mandatory")
+   @NotNull(message = "Subject is mandatory")
     private SubjectDTO subject;
 }

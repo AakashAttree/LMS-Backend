@@ -17,7 +17,7 @@
     </parent>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>8</java.version>
         <org.projectlombok.version>1.18.22</org.projectlombok.version>
         <org.mapstruct.version>1.5.0.Final</org.mapstruct.version>
         <spring.cloud-version>2021.0.3</spring.cloud-version>
@@ -61,7 +61,11 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
            
         </dependency>
-
+		<dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct-processor</artifactId>
+    <version>1.3.1.Final</version>
+</dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>

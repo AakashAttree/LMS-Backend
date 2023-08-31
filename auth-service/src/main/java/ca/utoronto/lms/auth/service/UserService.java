@@ -54,6 +54,7 @@ public class UserService extends BaseService<User, UserDetailsDTO, Long> {
     @Transactional
     public UserDetailsDTO save(UserDetailsDTO userDetailsDTO) {
         userDetailsDTO.setPassword(passwordEncoder.encode(userDetailsDTO.getPassword()));
+    	//userDetailsDTO.setPassword(userDetailsDTO.getPassword());
         userDetailsDTO.setAccountNonExpired(true);
         userDetailsDTO.setAccountNonLocked(true);
         userDetailsDTO.setCredentialsNonExpired(true);
@@ -71,7 +72,8 @@ public class UserService extends BaseService<User, UserDetailsDTO, Long> {
             existingUser.setUsername(userDetailsDTO.getUsername());
         }
         if (userDetailsDTO.getPassword() != null) {
-            existingUser.setPassword(passwordEncoder.encode(userDetailsDTO.getPassword()));
+           existingUser.setPassword(passwordEncoder.encode(userDetailsDTO.getPassword()));
+        	//existingUser.setPassword(userDetailsDTO.getPassword());
         }
 
         return this.mapper.toDTO(this.repository.save(existingUser));

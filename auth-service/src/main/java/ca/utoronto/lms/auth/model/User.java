@@ -21,7 +21,7 @@ import java.util.Set;
 @Getter
 @Setter
 @SuperBuilder
-public class User extends BaseEntity<Long> implements UserDetails {
+public class User extends BaseEntity<Long>  {
     @Column(nullable = false, unique = true)
     private String username;
 

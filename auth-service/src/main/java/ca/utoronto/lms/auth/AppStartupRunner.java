@@ -21,6 +21,7 @@ public class AppStartupRunner implements ApplicationRunner {
     private final RoleService roleService;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+    
 
     @Override
     public void run(ApplicationArguments args) {
